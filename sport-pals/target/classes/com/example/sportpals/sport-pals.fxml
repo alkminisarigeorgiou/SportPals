@@ -1,16 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.sportpals.sportPalsController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane prefHeight="560.0" prefWidth="600.0" style="-fx-background-color: orange;">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #8FBC8F;">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-31.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/SportPals_Logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="21.0" layoutY="264.0" prefHeight="52.0" prefWidth="288.0" text="Get your daily dose of excercise and make the process fun!" wrapText="true">
+                     <font>
+                        <Font name="Arial Italic" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="21.0" layoutY="185.0" prefHeight="78.0" prefWidth="316.0" text="Great to have you back!" wrapText="true">
+                     <font>
+                        <Font name="Arial Bold Italic" size="30.0" />
+                     </font>
+                  </Label>
+                  <VBox alignment="CENTER" layoutX="353.0" layoutY="149.0" prefHeight="247.0" prefWidth="194.0" spacing="22.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 20;">
+                     <children>
+                        <Label text="Sign In">
+                           <font>
+                              <Font name="Arial Bold Italic" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField promptText="Username" style="-fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90; -fx-background-color: F5FFFA;" />
+                        <PasswordField promptText="Password" style="-fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90; -fx-background-color: F5FFFA;" />
+                        <Button mnemonicParsing="false" style="-fx-background-color: #20B2AA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" text="Log In" textAlignment="CENTER">
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

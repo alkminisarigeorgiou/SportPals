@@ -35,15 +35,15 @@
                         <Font name="Arial Bold Italic" size="30.0" />
                      </font>
                   </Label>
-                  <VBox alignment="CENTER" layoutX="353.0" layoutY="149.0" prefHeight="247.0" prefWidth="194.0" spacing="22.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+                  <VBox alignment="CENTER" layoutX="353.0" layoutY="149.0" prefHeight="247.0" prefWidth="194.0" spacing="22.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 20;">
                      <children>
                         <Label text="Sign In">
                            <font>
                               <Font name="Arial Bold Italic" size="16.0" />
                            </font>
                         </Label>
-                        <TextField promptText="Username" style="-fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" />
-                        <PasswordField promptText="Password" style="-fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" />
+                        <TextField promptText="Username" style="-fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90; -fx-background-color: F5FFFA;" />
+                        <PasswordField promptText="Password" style="-fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90; -fx-background-color: F5FFFA;" />
                         <Button mnemonicParsing="false" style="-fx-background-color: #20B2AA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" text="Log In" textAlignment="CENTER">
                            <VBox.margin>
                               <Insets top="20.0" />
