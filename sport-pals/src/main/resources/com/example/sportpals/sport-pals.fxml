@@ -40,9 +40,9 @@
                               <Font name="Arial Bold Italic" size="16.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="14.0" layoutY="59.0" promptText="Username" style="-fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90; -fx-background-color: F5FFFA;" />
-                        <PasswordField layoutX="14.0" layoutY="110.0" promptText="Password" style="-fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90; -fx-background-color: F5FFFA;" />
-                        <Button layoutX="69.0" layoutY="171.0" mnemonicParsing="false" onAction="#changeWindow" style="-fx-background-color: #20B2AA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" text="Log In" textAlignment="CENTER">
+                        <TextField fx:id="logInUsername" layoutX="14.0" layoutY="59.0" promptText="Username" style="-fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90; -fx-background-color: F5FFFA;" />
+                        <PasswordField fx:id="logInPassword" layoutX="14.0" layoutY="110.0" promptText="Password" style="-fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90; -fx-background-color: F5FFFA;" />
+                        <Button layoutX="63.0" layoutY="164.0" mnemonicParsing="false" onAction="#logInbtn" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #20B2AA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" text="Log In" textAlignment="CENTER">
                            <font>
                               <Font name="Arial Bold" size="14.0" />
                            </font>
@@ -84,15 +84,20 @@
                   </Pane>
                   <Pane layoutY="158.0" prefHeight="340.0" prefWidth="300.0">
                      <children>
-                        <TextField layoutX="4.0" layoutY="87.0" prefHeight="26.0" prefWidth="145.0" promptText="First Name" style="-fx-background-color: F5FFFA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" />
-                        <TextField layoutX="152.0" layoutY="87.0" prefHeight="26.0" prefWidth="145.0" promptText="Last Name" style="-fx-background-color: F5FFFA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" />
-                        <TextField layoutX="4.0" layoutY="130.0" prefHeight="26.0" prefWidth="145.0" promptText="Username" style="-fx-background-color: F5FFFA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" />
-                        <TextField layoutX="152.0" layoutY="130.0" prefHeight="26.0" prefWidth="145.0" promptText="Email" style="-fx-background-color: F5FFFA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" />
-                        <TextField layoutX="4.0" layoutY="173.0" prefHeight="26.0" prefWidth="145.0" promptText="Password" style="-fx-background-color: F5FFFA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" />
-                        <TextField layoutX="152.0" layoutY="173.0" prefHeight="26.0" prefWidth="145.0" promptText="Confirm Password" style="-fx-background-color: F5FFFA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" />
-                        <ComboBox fx:id="cityComboBox" layoutX="4.0" layoutY="216.0" prefHeight="26.0" prefWidth="145.0" promptText="City" style="-fx-background-color: F5FFFA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" />
-                        <ComboBox fx:id="sportsComboBox" layoutX="152.0" layoutY="216.0" prefHeight="26.0" prefWidth="145.0" promptText="Sport" style="-fx-background-color: F5FFFA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" />
-                        <Button layoutX="117.0" layoutY="266.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="67.0" style="-fx-background-color: #20B2AA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" text="Button">
+                        <Label fx:id="notificationLabel" alignment="CENTER" layoutX="2.0" layoutY="-8.0" prefHeight="45.0" prefWidth="300.0" wrapText="true">
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="registerName" layoutX="4.0" layoutY="87.0" prefHeight="26.0" prefWidth="145.0" promptText="First Name" style="-fx-background-color: F5FFFA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" />
+                        <TextField fx:id="registerSurname" layoutX="152.0" layoutY="87.0" prefHeight="26.0" prefWidth="145.0" promptText="Last Name" style="-fx-background-color: F5FFFA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" />
+                        <TextField fx:id="registerUsername" layoutX="4.0" layoutY="130.0" prefHeight="26.0" prefWidth="145.0" promptText="Username" style="-fx-background-color: F5FFFA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" />
+                        <TextField fx:id="registerEmail" layoutX="152.0" layoutY="130.0" prefHeight="26.0" prefWidth="145.0" promptText="Email" style="-fx-background-color: F5FFFA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" />
+                        <PasswordField fx:id="registerPassword" layoutX="4.0" layoutY="173.0" prefHeight="26.0" prefWidth="145.0" promptText="Password" style="-fx-background-color: F5FFFA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" />
+                        <PasswordField fx:id="registerCinfirm" layoutX="152.0" layoutY="173.0" prefHeight="26.0" prefWidth="145.0" promptText="Confirm Password" style="-fx-background-color: F5FFFA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" />
+                        <ComboBox fx:id="registerCityComboBox" layoutX="4.0" layoutY="216.0" prefHeight="26.0" prefWidth="145.0" promptText="City" style="-fx-background-color: F5FFFA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" />
+                        <ComboBox fx:id="registerSportsComboBox" layoutX="152.0" layoutY="216.0" prefHeight="26.0" prefWidth="145.0" promptText="Sport" style="-fx-background-color: F5FFFA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" />
+                        <Button layoutX="113.0" layoutY="266.0" mnemonicParsing="false" onAction="#signUpbtn" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #20B2AA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" text="Sign Up">
                            <font>
                               <Font name="Arial Bold" size="14.0" />
                            </font>

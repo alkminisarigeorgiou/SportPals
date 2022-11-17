@@ -2,12 +2,22 @@ package com.example.sportpals;
 
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
+import javafx.stage.Stage;
+import javax.swing.JOptionPane;
+import javafx.scene.paint.Color;
 
+import java.awt.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -28,16 +38,60 @@ public class sportPalsController implements Initializable {
     private Label btnBackSignUp;
 
     @FXML
-    private ComboBox<String> cityComboBox;
+    private ComboBox<String> registerCityComboBox;
 
     @FXML
-    private ComboBox<String> sportsComboBox;
+    private ComboBox<String> registerSportsComboBox;
 
     @FXML
-    void changeWindow(ActionEvent event) {
+    private TextField registerEmail;
 
-    }
+    @FXML
+    private TextField registerName;
 
+    @FXML
+    private PasswordField registerPassword;
+
+    @FXML
+    private PasswordField registerCinfirm;
+
+    @FXML
+    private TextField registerSurname;
+
+    @FXML
+    private TextField registerUsername;
+
+    @FXML
+    private Label notificationLabel;
+
+    @FXML
+    private PasswordField logInPassword;
+
+    @FXML
+    private TextField logInUsername;
+
+
+    /**
+     * When we press logInbtn we are taken to the chat screen (ChatRoom.fxml)
+     */
+    @FXML
+    void logInbtn(ActionEvent event) {
+            try {
+                Stage stage = (Stage) registerName.getScene().getWindow();
+                Parent root = FXMLLoader.load(this.getClass().getResource("ChatRoom.fxml"));
+                stage.setScene(new Scene(root, 560, 600));
+                stage.setTitle("Welcome");
+                stage.setResizable(false);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+    } // end logInbtn
+    
+    /**
+     * Here we make disable sign in pane
+     * and make visible sign up pane
+     */
     @FXML
     void createAccount(MouseEvent event) {
         pnSignIn.setVisible(!logInVisible);
@@ -46,6 +100,10 @@ public class sportPalsController implements Initializable {
         pnSignUp.setDisable(!logInVisible);
     }
 
+    /**
+     * Here we make disable sign up pane
+     * and make visible sign in pane
+     */
     @FXML
     void signInPane(MouseEvent event) {
         pnSignIn.setVisible(logInVisible);
@@ -53,14 +111,75 @@ public class sportPalsController implements Initializable {
         pnSignUp.setVisible(!logInVisible);
         pnSignUp.setDisable(logInVisible);
     }
-    //Set strings to ComboBox
+
+    /**
+     * Set strings to ComboBox
+     * Override method is used to filled the comboBox items.
+     */
     private String[] city = {"Athens", "Thesalloniki", "Patra"};
     private String[] sports = {"Football", "Basketball", "Tennis"};
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        cityComboBox.getItems().addAll(city);
-        sportsComboBox.getItems().addAll(sports);
-    }
-    //end ComboBox
-}
+        registerCityComboBox.getItems().addAll(city);
+        registerSportsComboBox.getItems().addAll(sports);
+    } //end ComboBox
+
+    /**
+     * This button is used to check
+     * if the text fields are filled in correctly
+     */
+    @FXML
+    void signUpbtn(ActionEvent event) throws Exception {
+        if (registerName.getLength() < 3) {
+            notificationLabel.setTextFill(Color.RED);
+            notificationLabel.setText("Name must be at least 3 characters long");
+        } else if (registerSurname.getLength() < 3) {
+            notificationLabel.setTextFill(Color.RED);
+            notificationLabel.setText("Surname must be at least 3 characters long");
+        } else if (registerUsername.getLength() < 3) {
+            notificationLabel.setTextFill(Color.RED);
+            notificationLabel.setText("Username must be at least 3 characters long");
+        } else if (registerEmail.getLength() < 5) {
+            notificationLabel.setTextFill(Color.RED);
+            notificationLabel.setText("Email must be at least 5 characters long");
+        } else if (!(registerCinfirm.getText().equals(registerPassword.getText())) || (registerPassword.getText().isEmpty()) || registerCinfirm.getText().isEmpty()) {
+            notificationLabel.setTextFill(Color.RED);
+            notificationLabel.setText("Password and Confirmation must be the same");
+        } else if (registerCityComboBox.getSelectionModel().getSelectedIndex() == -1) {
+            notificationLabel.setTextFill(Color.RED);
+            notificationLabel.setText("You must select a city");
+        } else if (registerSportsComboBox.getSelectionModel().getSelectedIndex() == -1) {
+            notificationLabel.setTextFill(Color.RED);
+            notificationLabel.setText("You must select a sport");
+        } else {
+            register(); //call register method
+            clear(); //call clear method
+            notificationLabel.setTextFill(Color.GREEN);
+            notificationLabel.setText("Registration almost done!");
+        }
+    } //end signUpbtn button
+
+    /**
+     * This method is used to register/create new user.
+     */
+    public void register() throws Exception {
+        UserDAO userdao = new UserDAO();
+        User user = new User(registerName.getText(), registerSurname.getText(), registerUsername.getText(), registerEmail.getText(), registerCityComboBox.getValue(), registerSportsComboBox.getValue(), registerPassword.getText());
+        userdao.register(user);
+    } // end of register
+
+    /**
+    * This method is used to clear text field after registration.
+     */
+    public void clear() throws Exception {
+        registerName.clear();
+        registerSurname.clear();
+        registerUsername.clear();
+        registerEmail.clear();
+        registerCityComboBox.setValue(null);
+        registerSportsComboBox.setValue(null);
+        registerPassword.clear();
+        registerCinfirm.clear();
+    } // end of clear text fields
+
+} //end class
