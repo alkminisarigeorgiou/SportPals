@@ -1,5 +1,6 @@
 package com.example.sportpals;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -70,24 +71,39 @@ public class sportPalsController implements Initializable {
     @FXML
     private TextField logInUsername;
 
+    @FXML
+    private Label wrongMessagelbl;
 
     /**
-     * When we press logInbtn we are taken to the chat screen (ChatRoom.fxml)
+     *    When we press logInbtn
+     * 1. Does user authentication and if correct
+     * 2. We are taken to the chat screen (ChatRoom.fxml)
+     * 3. Else it displays an error message
      */
     @FXML
     void logInbtn(ActionEvent event) {
+
+        String username = logInUsername.getText();
+        String password = logInPassword.getText();
+        UserDAO userDAO = new UserDAO();
+        try {
+            userDAO.authenticate(username, password);
+            User user = userDAO.authenticate(username, password);
             try {
                 Stage stage = (Stage) registerName.getScene().getWindow();
                 Parent root = FXMLLoader.load(this.getClass().getResource("ChatRoom.fxml"));
                 stage.setScene(new Scene(root, 560, 600));
-                stage.setTitle("Welcome");
+                stage.setTitle("Welcome " + user.getUsername());
                 stage.setResizable(false);
                 stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        } catch (Exception e){
+            wrongMessagelbl.setText(e.getMessage());
+        }
     } // end logInbtn
-    
+
     /**
      * Here we make disable sign in pane
      * and make visible sign up pane
@@ -172,6 +188,7 @@ public class sportPalsController implements Initializable {
     * This method is used to clear text field after registration.
      */
     public void clear() throws Exception {
+        String cityComboBox = "City";
         registerName.clear();
         registerSurname.clear();
         registerUsername.clear();
@@ -180,6 +197,7 @@ public class sportPalsController implements Initializable {
         registerSportsComboBox.setValue(null);
         registerPassword.clear();
         registerCinfirm.clear();
+        System.out.println(registerCityComboBox.getValue());
     } // end of clear text fields
 
 } //end class

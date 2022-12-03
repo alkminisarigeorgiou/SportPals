@@ -40,8 +40,8 @@
                               <Font name="Arial Bold Italic" size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="logInUsername" layoutX="14.0" layoutY="59.0" promptText="Username" style="-fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90; -fx-background-color: F5FFFA;" />
-                        <PasswordField fx:id="logInPassword" layoutX="14.0" layoutY="110.0" promptText="Password" style="-fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90; -fx-background-color: F5FFFA;" />
+                        <TextField fx:id="logInUsername" layoutX="14.0" layoutY="57.0" promptText="Username" style="-fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90; -fx-background-color: F5FFFA;" />
+                        <PasswordField fx:id="logInPassword" layoutX="14.0" layoutY="108.0" promptText="Password" style="-fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90; -fx-background-color: F5FFFA;" />
                         <Button layoutX="63.0" layoutY="164.0" mnemonicParsing="false" onAction="#logInbtn" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #20B2AA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" text="Log In" textAlignment="CENTER">
                            <font>
                               <Font name="Arial Bold" size="14.0" />
@@ -50,6 +50,11 @@
                         <Label fx:id="btnSignUp" layoutX="14.0" layoutY="212.0" onMouseClicked="#createAccount" text="Don't have account?  Sign Up" textFill="#757373">
                            <font>
                               <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="wrongMessagelbl" layoutX="14.0" layoutY="136.0" prefHeight="26.0" prefWidth="190.0" textFill="RED">
+                           <font>
+                              <Font name="Arial Bold Italic" size="11.0" />
                            </font>
                         </Label>
                      </children>

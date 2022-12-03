@@ -57,5 +57,65 @@ public class UserDAO {
 
 	}//end of register
 
+	/**
+	 * This method is used to authenticate a user.
+	 *
+	 * @param username, String
+	 * @param password, String
+	 * @return User, the User object
+	 * @throws Exception, if the credentials are not valid
+	 */
+	public User authenticate(String username, String password) throws Exception {
+
+		Connection con = null;
+		DB db = new DB();
+		String sqlFindUserQuery = "SELECT * FROM USERS WHERE username=? AND password=?;";
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		User user = null;
+
+		try {
+
+			con = db.getConnection(); // get Connection
+
+			stmt = con.prepareStatement(sqlFindUserQuery);
+
+			stmt.setString(1, username);
+			stmt.setString(2, password);
+
+			rs = stmt.executeQuery();
+
+			if (!rs.next()) {
+				rs.close();
+				stmt.close();
+				db.close();
+
+				throw new Exception("Incorrect username or password");
+
+			}
+
+			user = new User(rs.getString("name"), rs.getString("surname"), rs.getString("username"), rs.getString("email"),
+					rs.getString("city"), rs.getString("sport"), rs.getString("password"));
+
+			rs.close();
+			stmt.close();
+			db.close();
+
+			return user; // return the user
+
+		} catch (Exception e) {
+
+			throw new Exception(e.getMessage());
+
+		} finally {
+
+			if (con != null)
+				con.close();
+
+		}
+
+
+	} //End of authenticate
+
 
 } //End of class
