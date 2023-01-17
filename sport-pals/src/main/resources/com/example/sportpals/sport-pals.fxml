@@ -16,7 +16,7 @@
    <children>
       <StackPane prefHeight="560.0" prefWidth="600.0" style="-fx-background-color: orange;">
          <children>
-            <Pane fx:id="pnSignIn" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #8FBC8F;">
+            <Pane fx:id="pnSignIn" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fafcfa;">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-31.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -42,12 +42,12 @@
                         </Label>
                         <TextField fx:id="logInUsername" layoutX="14.0" layoutY="57.0" promptText="Username" style="-fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90; -fx-background-color: F5FFFA;" />
                         <PasswordField fx:id="logInPassword" layoutX="14.0" layoutY="108.0" promptText="Password" style="-fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90; -fx-background-color: F5FFFA;" />
-                        <Button layoutX="63.0" layoutY="164.0" mnemonicParsing="false" onAction="#logInbtn" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #20B2AA; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" text="Log In" textAlignment="CENTER">
+                        <Button layoutX="63.0" layoutY="164.0" mnemonicParsing="false" onAction="#logInbtn" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #6dd6c2; -fx-border-color: black; -fx-background-radius: 90; -fx-border-radius: 90;" text="Log In" textAlignment="CENTER">
                            <font>
                               <Font name="Arial Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Label fx:id="btnSignUp" layoutX="14.0" layoutY="212.0" onMouseClicked="#createAccount" text="Don't have account?  Sign Up" textFill="#757373">
+                        <Label fx:id="btnSignUp" layoutX="14.0" layoutY="212.0" onMouseClicked="#createAccount" text="Don't have account?  Sign Up" textFill="#bef9fa">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -68,7 +68,7 @@
                         <Image url="@icons/SportPals_Logo.png" />
                      </image>
                   </ImageView>
-                  <Pane layoutX="300.0" prefHeight="560.0" prefWidth="300.0" style="-fx-background-color: purple;">
+                  <Pane layoutX="300.0" prefHeight="560.0" prefWidth="300.0" style="-fx-background-color: #8354e2;">
                      <children>
                         <Label layoutX="11.0" layoutY="325.0" text="Join your new community!" textFill="WHITE">
                            <font>
