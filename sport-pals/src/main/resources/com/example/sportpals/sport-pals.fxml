@@ -75,7 +75,7 @@
                               <Font name="Arial Bold Italic" size="22.0" />
                            </font>
                         </Label>
-                        <Label layoutX="87.0" layoutY="367.0" text="Socialize, work ou." textFill="WHITE">
+                        <Label layoutX="87.0" layoutY="367.0" text="Socialize, work out." textFill="WHITE">
                            <font>
                               <Font name="Arial Italic" size="15.0" />
                            </font>
