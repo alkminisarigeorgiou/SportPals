@@ -17,7 +17,11 @@
    <left>
       <HBox prefHeight="560.0" prefWidth="279.0" style="-fx-background-color: #8FBC8F;" BorderPane.alignment="CENTER">
          <children>
+<<<<<<< HEAD
             <VBox alignment="CENTER" prefHeight="560.0" prefWidth="76.0" style="-fx-background-color: #808080;">
+=======
+            <Pane prefHeight="600.0" prefWidth="560.0" style="-fx-background-color: #6dd6c2;">
+>>>>>>> refs/remotes/origin/main
                <children>
                   <Pane prefHeight="206.0" prefWidth="84.0" />
                   <ImageView fx:id="messageImageView" fitHeight="48.0" fitWidth="38.0" onMouseClicked="#messageBtn" pickOnBounds="true" preserveRatio="true">
