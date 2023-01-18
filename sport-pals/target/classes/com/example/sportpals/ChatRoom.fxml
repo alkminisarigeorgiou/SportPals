@@ -1,21 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="600.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sportpals.ChatRoom">
-   <children>
-      <StackPane prefHeight="600.0" prefWidth="560.0" style="-fx-background-color: orange;">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sportpals.ChatRoom">
+   <left>
+      <HBox prefHeight="560.0" prefWidth="279.0" style="-fx-background-color: #8FBC8F;" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="600.0" prefWidth="560.0" style="-fx-background-color: #8FBC8F;">
+            <VBox alignment="CENTER" prefHeight="560.0" prefWidth="76.0" style="-fx-background-color: #808080;">
                <children>
-                  <Label fx:id="testLabel" alignment="CENTER" layoutX="201.0" layoutY="233.0" prefHeight="73.0" prefWidth="159.0" text="Label" textAlignment="CENTER" />
+                  <Pane prefHeight="206.0" prefWidth="84.0" />
+                  <ImageView fx:id="messageImageView" fitHeight="48.0" fitWidth="38.0" onMouseClicked="#messageBtn" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/messages.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="userImageView" fitHeight="48.0" fitWidth="38.0" onMouseClicked="#userBtn" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/user-black.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="groupImageView" fitHeight="48.0" fitWidth="38.0" onMouseClicked="#groupBtn" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/groups-black.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="settingsImageView" fitHeight="48.0" fitWidth="38.0" onMouseClicked="#settingsBtn" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/gear-black.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Pane prefHeight="200.0" prefWidth="92.0" VBox.vgrow="ALWAYS" />
+                  <ImageView fx:id="logOutImageView" fitHeight="48.0" fitWidth="38.0" onMouseClicked="#logOutBtn" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/logout-black.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                  </ImageView>
                </children>
-            </Pane>
+            </VBox>
+            <VBox prefHeight="560.0" prefWidth="190.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="32.0" prefWidth="157.0" style="-fx-background-color: #006400; -fx-background-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/search.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <TextField prefHeight="27.0" prefWidth="89.0" promptText="Search" style="-fx-background-color: #006400;">
+                           <font>
+                              <Font name="Arial Italic" size="15.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Line endX="100.5" startX="-100.0" strokeWidth="2.0" />
+               </children>
+            </VBox>
          </children>
-      </StackPane>
-   </children>
-</AnchorPane>
+      </HBox>
+   </left>
+   <center>
+      <VBox prefHeight="560.0" prefWidth="249.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="82.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="headUsernameLbl" alignment="CENTER_RIGHT" prefHeight="23.0" prefWidth="129.0" text="Username">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                     <font>
+                        <Font name="Arial Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

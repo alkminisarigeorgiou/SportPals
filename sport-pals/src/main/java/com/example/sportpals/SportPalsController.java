@@ -1,6 +1,5 @@
 package com.example.sportpals;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -14,15 +13,16 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
 import javafx.scene.paint.Color;
 
-import java.awt.*;
 import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
-public class sportPalsController implements Initializable {
+public class SportPalsController implements Initializable {
 
     private boolean logInVisible = true;
 
@@ -74,6 +74,8 @@ public class sportPalsController implements Initializable {
     @FXML
     private Label wrongMessagelbl;
 
+
+
     /**
      *    When we press logInbtn
      * 1. Does user authentication and if correct
@@ -81,19 +83,20 @@ public class sportPalsController implements Initializable {
      * 3. Else it displays an error message
      */
     @FXML
-    void logInbtn(ActionEvent event) {
+    void logInbtn(ActionEvent event) throws Exception {
 
         String username = logInUsername.getText();
         String password = logInPassword.getText();
         UserDAO userDAO = new UserDAO();
+
         try {
             userDAO.authenticate(username, password);
             User user = userDAO.authenticate(username, password);
             try {
                 Stage stage = (Stage) registerName.getScene().getWindow();
                 Parent root = FXMLLoader.load(this.getClass().getResource("ChatRoom.fxml"));
-                stage.setScene(new Scene(root, 560, 600));
-                stage.setTitle("Welcome " + user.getUsername());
+                stage.setScene(new Scene(root, 600, 560));
+                stage.setTitle("Welcome " + user.getName() + " " + user.getSurname());
                 stage.setResizable(false);
                 stage.show();
             } catch (IOException e) {
@@ -188,7 +191,6 @@ public class sportPalsController implements Initializable {
     * This method is used to clear text field after registration.
      */
     public void clear() throws Exception {
-        String cityComboBox = "City";
         registerName.clear();
         registerSurname.clear();
         registerUsername.clear();
@@ -197,7 +199,7 @@ public class sportPalsController implements Initializable {
         registerSportsComboBox.setValue(null);
         registerPassword.clear();
         registerCinfirm.clear();
-        System.out.println(registerCityComboBox.getValue());
     } // end of clear text fields
+
 
 } //end class

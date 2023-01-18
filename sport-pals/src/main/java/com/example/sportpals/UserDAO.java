@@ -115,7 +115,7 @@ public class UserDAO {
 		}
 
 
-	} //End of authenticate
+	} //End of authenticates
 
 
 } //End of class

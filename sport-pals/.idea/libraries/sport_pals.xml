@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="sport-pals">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/sport_pals_jar/sport-pals.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

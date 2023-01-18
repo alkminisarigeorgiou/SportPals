@@ -1,12 +1,20 @@
 package com.example.sportpals;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 import javafx.scene.image.Image;
 
 import java.io.IOException;
+import java.net.ServerSocket;
 
 public class sportPals extends Application {
     /**
@@ -24,7 +32,27 @@ public class sportPals extends Application {
         stage.setTitle("Sport Pals");
         stage.setScene(scene);
         stage.show();
+
+        stage.setOnCloseRequest(event -> {
+            event.consume();
+            logOutBtn(stage);
+        });
+
     }
+
+    public void logOutBtn(Stage stage){
+
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Logout");
+        alert.setHeaderText("You're about to logout!");
+        alert.setContentText("You sure you want to log out?");
+
+        if (alert.showAndWait().get() == ButtonType.OK){
+            System.out.println("You successfully logged out");
+            stage.close();
+        }
+    }
+
 
     /**
      * The main.
@@ -32,6 +60,8 @@ public class sportPals extends Application {
      * @param args
      * */
     public static void main(String[] args) {
+
         launch();
+
     }
 }

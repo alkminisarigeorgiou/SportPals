@@ -2,6 +2,7 @@ package com.example.sportpals;
 
 public class User {
 /** Every user have the following stats.  */
+	private String userID; // User's ID that is auto increment from database.
 	private String name; //User's name
 	private String surname; // User's surname
 	private String username; // User's username
@@ -9,7 +10,7 @@ public class User {
 	private String city; // User's city
 	private String sport; // User's sport
 	private String password; // User's password
-	private String userID; // User's ID that is auto increment from database.
+	private String userStatus; // User's user status
 
 	/**
 	 * Constructor that creates the user with the following stats.
@@ -153,9 +154,25 @@ public class User {
 		return userID;
 		}
 
+	/**
+	 * Getter userStatus
+	 * @return the userStatus
+	 */
+	public String getUserStatus() {
+		return userStatus;
+	}
+
+	/**
+	 * Setter userStatus
+	 * @param userStatus the new user status to set
+	 */
+	public void setUserStatus(String userStatus) {
+		this.userStatus = userStatus;
+	}
+
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", name=" + name + ", surname=" + surname + ", city=" + city + ", sport=" + sport + ", email=" + email + ", userID=" + userID + "]";
+		return "User [username=" + username + ", name=" + name + ", surname=" + surname + ", city=" + city + ", sport=" + sport + ", email=" + email + ", userStatus=" + ", userID=" + userID + "]";
 	}
 
 } //End of class
